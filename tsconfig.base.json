@@ -1,0 +1,34 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@dm/nest/demo-be/user": ["libs/nest/demo-be/user/src/index.ts"],
+      "@dm/nest/shared/auth": ["libs/nest/shared/auth/src/index.ts"],
+      "@dm/nest/shared/config": ["libs/nest/shared/config/src/index.ts"],
+      "@dm/nest/shared/mailer": ["libs/nest/shared/mailer/src/index.ts"],
+      "@dm/nest/shared/util-error-handler": ["libs/nest/shared/util-error-handler/src/index.ts"],
+      "@dm/react/demo-fe/feature-user": ["libs/react/demo-fe/feature-user/src/index.ts"],
+      "@dm/react/shared/feature-auth": ["libs/react/shared/feature-auth/src/index.ts"],
+      "@dm/react/shared/ui-form": ["libs/react/shared/ui-form/src/index.ts"],
+      "@dm/react/shared/util-config": ["libs/react/shared/util-config/src/index.ts"],
+      "@dm/react/shared/util-store": ["libs/react/shared/util-store/src/index.ts"],
+      "@dm/shared/auth-models": ["libs/shared/auth-models/src/index.ts"],
+      "@dm/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@dm/shared/demo/data-model": ["libs/shared/demo/data-model/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

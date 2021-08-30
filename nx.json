@@ -1,0 +1,80 @@
+{
+  "npmScope": "dm",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "demo-be": {
+      "tags": []
+    },
+    "demo-fe": {
+      "tags": []
+    },
+    "demo-fe-e2e": {
+      "tags": [],
+      "implicitDependencies": ["demo-fe"]
+    },
+    "nest-demo-be-user": {
+      "tags": []
+    },
+    "nest-shared-auth": {
+      "tags": []
+    },
+    "nest-shared-config": {
+      "tags": []
+    },
+    "nest-shared-mailer": {
+      "tags": []
+    },
+    "nest-shared-util-error-handler": {
+      "tags": []
+    },
+    "react-demo-feature-user": {
+      "tags": []
+    },
+    "react-shared-feature-auth": {
+      "tags": []
+    },
+    "react-shared-ui-form": {
+      "tags": []
+    },
+    "react-shared-util-config": {
+      "tags": []
+    },
+    "react-shared-util-store": {
+      "tags": []
+    },
+    "shared-auth-models": {
+      "tags": []
+    },
+    "shared-data-access": {
+      "tags": []
+    },
+    "shared-demo-be-data-model": {
+      "tags": []
+    }
+  }
+}
