@@ -153,6 +153,28 @@
         }
       }
     },
+    "nest-demo-be-projects": {
+      "root": "libs/nest/demo-be/projects",
+      "sourceRoot": "libs/nest/demo-be/projects/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/nest/demo-be/projects/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/nest/demo-be/projects"],
+          "options": {
+            "jestConfig": "libs/nest/demo-be/projects/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "nest-demo-be-user": {
       "root": "libs/nest/demo-be/user",
       "sourceRoot": "libs/nest/demo-be/user/src",

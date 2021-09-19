@@ -1,4 +1,4 @@
-import type { ConfirmationMessageDto, UserContext, UserCredentialsDto } from '@dm/shared/auth-models';
+import type { ConfirmationMessageDto, UserContext } from '@dm/shared/auth-models';
 import { Body, Controller, Get, InternalServerErrorException, Post, Put, UseGuards, ValidationPipe } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { GetToken, GetUserPayload } from './auth.decorators';
@@ -17,14 +17,14 @@ export class AuthController {
   }
 
   @Post('/signin')
-  async signIn(@Body() authCredentialsDto: UserCredentialsDto): Promise<UserContext> {
+  async signIn(@Body() authCredentialsDto: AuthCredentialsDto): Promise<UserContext> {
     const response = await this.authService.signIn(authCredentialsDto);
     return this.validateUserContextResponse(response);
   }
 
   @Post('/signout')
   @UseGuards(AuthGuard())
-  signOut(@GetUserPayload() userPayload, @GetToken() token: string): ConfirmationMessageDto {
+  signOut(@GetUserPayload() userPayload: JwtPayload, @GetToken() token: string): ConfirmationMessageDto {
     console.log('signOut', userPayload, token);
     return { text: `Sign out successfully.` };
   }

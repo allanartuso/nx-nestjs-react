@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@dm/nest/demo-be/projects": ["libs/nest/demo-be/projects/src/index.ts"],
       "@dm/nest/demo-be/user": ["libs/nest/demo-be/user/src/index.ts"],
       "@dm/nest/shared/auth": ["libs/nest/shared/auth/src/index.ts"],
       "@dm/nest/shared/config": ["libs/nest/shared/config/src/index.ts"],

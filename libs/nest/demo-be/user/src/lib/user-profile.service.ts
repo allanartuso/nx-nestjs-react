@@ -16,22 +16,20 @@ export class UserProfileService {
 
   private listenNewUsers() {
     this.authService.userCreated$.subscribe((user) => {
-      this.createUserProfile({
-        userProfile: {
-          id: user.id,
-          email: user.username,
-        },
+      this.create({
+        id: user.id,
+        email: user.username,
       });
     });
   }
 
-  async getUserProfile(id: number): Promise<UserProfileEntity> {
+  async get(id: number): Promise<UserProfileEntity> {
     const found = await this.userProfileRepository.findOne(id);
     if (!found) throw new NotFoundException(`UserProfile with ID "${id}" not found.`);
     return found;
   }
 
-  async createUserProfile({ userProfile }: { userProfile: UserProfileDto }): Promise<UserProfileDto> {
+  async create(userProfile: UserProfileDto): Promise<UserProfileDto> {
     // if (userProfile.id) throw new BadRequestException('ID must be null when adding items');
 
     try {
@@ -43,7 +41,7 @@ export class UserProfileService {
     return userProfile;
   }
 
-  async updateUserProfile({ userProfile }: { userProfile: UserProfileDto }) {
+  async update(userProfile: UserProfileDto) {
     if (!userProfile.id) throw new Error('ID is required');
 
     const update: UserProfileDto = { ...userProfile };
@@ -58,10 +56,10 @@ export class UserProfileService {
     return userProfile;
   }
 
-  async deleteUserProfile(userProfileId: number) {
+  async delete(userProfileId: number) {
     if (!userProfileId) throw new Error('ID is required');
 
-    const userProfile = await this.getUserProfile(userProfileId);
+    const userProfile = await this.get(userProfileId);
 
     try {
       const deleteRes = await userProfile.remove();

@@ -37,6 +37,9 @@
       "tags": [],
       "implicitDependencies": ["demo-fe"]
     },
+    "nest-demo-be-projects": {
+      "tags": []
+    },
     "nest-demo-be-user": {
       "tags": []
     },
