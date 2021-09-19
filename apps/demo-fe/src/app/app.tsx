@@ -16,8 +16,12 @@ import styles from './app.module.scss';
 import ButtonAppBar from './components/appBar';
 import { appReducer } from './store';
 
-const ReactDemoBeFeatureUser = React.lazy(() =>
-  import('@dm/react/demo-fe/feature-user').then((module) => ({ default: module.ReactDemoBeFeatureUser }))
+const ReactDemoFeFeatureUser = React.lazy(() =>
+  import('@dm/react/demo-fe/feature-user').then((module) => ({ default: module.ReactDemoFeFeatureUser }))
+);
+
+const ReactDemoFeFeatureProjects = React.lazy(() =>
+  import('@dm/react/demo-fe/feature-projects').then((module) => ({ default: module.ReactDemoFeFeatureProjects }))
 );
 
 const history = createBrowserHistory();
@@ -41,7 +45,10 @@ export function App() {
               </Route>
               <React.Suspense fallback={<p>Loading</p>}>
                 <ProtectedRoute path="/user">
-                  <ReactDemoBeFeatureUser />
+                  <ReactDemoFeFeatureUser />
+                </ProtectedRoute>
+                <ProtectedRoute path="/projects">
+                  <ReactDemoFeFeatureProjects />
                 </ProtectedRoute>
               </React.Suspense>
             </Switch>

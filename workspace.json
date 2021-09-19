@@ -263,6 +263,28 @@
         }
       }
     },
+    "react-demo-fe-feature-projects": {
+      "root": "libs/react/demo-fe/feature-projects",
+      "sourceRoot": "libs/react/demo-fe/feature-projects/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/react/demo-fe/feature-projects/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/react/demo-fe/feature-projects"],
+          "options": {
+            "jestConfig": "libs/react/demo-fe/feature-projects/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "react-demo-feature-user": {
       "root": "libs/react/demo-be/feature-user",
       "sourceRoot": "libs/react/demo-be/feature-user/src",

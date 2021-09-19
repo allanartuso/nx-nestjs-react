@@ -20,6 +20,7 @@
       "@dm/nest/shared/config": ["libs/nest/shared/config/src/index.ts"],
       "@dm/nest/shared/mailer": ["libs/nest/shared/mailer/src/index.ts"],
       "@dm/nest/shared/util-error-handler": ["libs/nest/shared/util-error-handler/src/index.ts"],
+      "@dm/react/demo-fe/feature-projects": ["libs/react/demo-fe/feature-projects/src/index.ts"],
       "@dm/react/demo-fe/feature-user": ["libs/react/demo-fe/feature-user/src/index.ts"],
       "@dm/react/shared/feature-auth": ["libs/react/shared/feature-auth/src/index.ts"],
       "@dm/react/shared/ui-form": ["libs/react/shared/ui-form/src/index.ts"],

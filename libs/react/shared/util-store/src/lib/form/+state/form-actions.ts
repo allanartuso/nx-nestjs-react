@@ -41,7 +41,7 @@ export function createFormActions<T>(featureName: string, service: FormService<T
 
   const create = createAsyncThunk<T, T, RejectedAction>(`[${featureName}] Create`, async (resource: T, thunkApi) => {
     try {
-      if (!service.createResource) throw new Error('Delete resource does not exist in your service.');
+      if (!service.createResource) throw new Error('Create resource does not exist in your service.');
 
       const createdResource = await service.createResource(resource);
       successMessage({ text: 'The resource was created successfully' });

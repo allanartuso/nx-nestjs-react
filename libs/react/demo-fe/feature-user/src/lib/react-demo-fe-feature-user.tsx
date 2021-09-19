@@ -7,7 +7,7 @@ import { UserProfile } from './containers/user-profile/user-profile';
 import './react-demo-fe-feature-user.module.scss';
 
 /* eslint-disable-next-line */
-export interface ReactDemoBeFeatureUserProps {}
+export interface ReactDemoFeFeatureUserProps {}
 
 const reducerManager = getReducerManager();
 const reducers = reducerManager.getReducerKeys();
@@ -15,7 +15,7 @@ if (!reducers.includes(USER_FEATURE_KEY)) {
   reducerManager.add(USER_FEATURE_KEY, userReducer);
 }
 
-export function ReactDemoBeFeatureUser(props: ReactDemoBeFeatureUserProps) {
+export function ReactDemoFeFeatureUser(props: ReactDemoFeFeatureUserProps) {
   const match = useRouteMatch();
   const dispatch = useDispatch();
 
@@ -30,4 +30,4 @@ export function ReactDemoBeFeatureUser(props: ReactDemoBeFeatureUserProps) {
   );
 }
 
-export default ReactDemoBeFeatureUser;
+export default ReactDemoFeFeatureUser;

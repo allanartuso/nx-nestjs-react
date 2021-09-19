@@ -91,9 +91,14 @@ export default function ButtonAppBar() {
           </Typography>
 
           {isLoggedIn ? (
-            <IconButton onClick={handleProfileMenuOpen} size="large">
-              <AccountCircle />
-            </IconButton>
+            <>
+              <Button className={classes.actionButtons}>
+                <Link to="/projects">Projects</Link>
+              </Button>
+              <IconButton onClick={handleProfileMenuOpen} size="large">
+                <AccountCircle />
+              </IconButton>
+            </>
           ) : (
             <Button className={classes.actionButtons}>
               <Link to="/auth/login">Login</Link>

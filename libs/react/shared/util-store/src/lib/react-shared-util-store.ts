@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-types */
-import { configureStore } from '@reduxjs/toolkit';
+import { AnyAction, CombinedState, combineReducers, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { History } from 'history';
-import { AnyAction, CombinedState, combineReducers, Reducer, ReducersMapObject } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 let reducerManager: ReturnType<typeof createReducerManager>;
