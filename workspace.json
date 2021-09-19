@@ -39,7 +39,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/demo-be/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -112,7 +113,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/demo-fe/**/*.{ts,tsx,js,jsx}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -146,7 +148,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/demo-fe-e2e/**/*.{js,ts}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     },
@@ -159,7 +162,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/nest/demo-be/user/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -180,7 +184,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/nest/shared/auth/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -201,7 +206,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/nest/shared/config/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -222,7 +228,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/nest/shared/mailer/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -243,7 +250,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/nest/shared/util-error-handler/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -264,7 +272,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/react/demo-be/feature-user/**/*.{ts,tsx,js,jsx}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -285,7 +294,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/react/shared/feature-auth/**/*.{ts,tsx,js,jsx}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -306,7 +316,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/react/shared/ui-form/**/*.{ts,tsx,js,jsx}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -327,7 +338,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/react/shared/util-config/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -348,7 +360,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/react/shared/util-store/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -369,7 +382,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/shared/auth-models/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -390,7 +404,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/shared/data-access/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -411,7 +426,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/shared/demo-be/data-model/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
