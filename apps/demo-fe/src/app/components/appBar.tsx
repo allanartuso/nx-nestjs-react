@@ -1,11 +1,11 @@
 import { authActions, authSelectors } from '@dm/react/shared/feature-auth';
-import { Button, Menu, MenuItem } from '@material-ui/core';
-import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import { Button, Menu, MenuItem } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import IconButton from '@mui/material/IconButton';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import makeStyles from '@mui/styles/makeStyles';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -41,9 +41,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 0,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
+  menuButton: {},
   title: {
     flexGrow: 1,
     textAlign: 'left',
@@ -83,7 +81,7 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static" style={{ background: DemoBeColors.background }}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" size="large">
             <Link to="/">
               <Logo />
             </Link>
@@ -93,7 +91,7 @@ export default function ButtonAppBar() {
           </Typography>
 
           {isLoggedIn ? (
-            <IconButton onClick={handleProfileMenuOpen}>
+            <IconButton onClick={handleProfileMenuOpen} size="large">
               <AccountCircle />
             </IconButton>
           ) : (
@@ -105,7 +103,6 @@ export default function ButtonAppBar() {
       </AppBar>
       <Menu
         anchorEl={anchorEl}
-        getContentAnchorEl={null}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         transformOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={isMenuOpen}

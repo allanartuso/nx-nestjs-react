@@ -1,4 +1,4 @@
-import Switch from '@material-ui/core/Switch';
+import Switch from '@mui/material/Switch';
 import { Control, FieldValues, useController } from 'react-hook-form';
 import { ControlRules } from '../../models/form.model';
 import './dm-switch-button.module.scss';

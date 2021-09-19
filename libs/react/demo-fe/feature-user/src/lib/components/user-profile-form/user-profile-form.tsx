@@ -13,7 +13,7 @@ export interface UserProfileFormProps {
 export function UserProfileForm({ user }: UserProfileFormProps) {
   const dispatch = useDispatch();
 
-  const { handleSubmit, control } = useForm<UserProfileDto>({ mode: 'onChange', defaultValues: user });
+  const { handleSubmit, control } = useForm<UserProfileDto>({ mode: 'onChange', defaultValues: { name: '', ...user } });
 
   const onSubmit = (user: UserProfileDto) => {
     dispatch(formActions.save(user));

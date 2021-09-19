@@ -1,4 +1,5 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { AxiosError } from 'axios';
 import { push } from 'connected-react-router';
 import { requestFailure, successMessage } from '../../utils/handle-notifications';
 import { FormActions, FormService, RejectedAction } from '../models/form.model';
@@ -9,7 +10,7 @@ export function createFormActions<T>(featureName: string, service: FormService<T
       const resource = await service.loadResource(id);
       return resource;
     } catch (error) {
-      requestFailure(error);
+      requestFailure(error as AxiosError<unknown>);
       return thunkApi.rejectWithValue(undefined);
     }
   });
@@ -21,7 +22,7 @@ export function createFormActions<T>(featureName: string, service: FormService<T
       const updatedResource = await service.saveResource(resource);
       return updatedResource;
     } catch (error) {
-      const errorData = requestFailure(error);
+      const errorData = requestFailure(error as AxiosError<unknown>);
       return thunkApi.rejectWithValue(errorData.fieldErrors || []);
     }
   });
@@ -34,7 +35,7 @@ export function createFormActions<T>(featureName: string, service: FormService<T
       successMessage({ text: 'The resource was removed successfully' });
       thunkApi.dispatch(push('..'));
     } catch (error) {
-      requestFailure(error);
+      requestFailure(error as AxiosError<unknown>);
     }
   });
 
@@ -47,7 +48,7 @@ export function createFormActions<T>(featureName: string, service: FormService<T
       thunkApi.dispatch(push('..'));
       return createdResource;
     } catch (error) {
-      const errorData = requestFailure(error);
+      const errorData = requestFailure(error as AxiosError<unknown>);
       return thunkApi.rejectWithValue(errorData.fieldErrors || []);
     }
   });

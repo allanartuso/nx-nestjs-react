@@ -1,6 +1,6 @@
 import { DmInput, DmRadio, DmSubmitButton } from '@dm/react/shared/ui-form';
 import { UserCredentialsDto } from '@dm/shared/auth-models';
-import { Link, Typography } from '@material-ui/core';
+import { Link, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';

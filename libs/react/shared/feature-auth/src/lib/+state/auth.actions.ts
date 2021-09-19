@@ -1,6 +1,7 @@
 import { requestFailure, successMessage } from '@dm/react/shared/util-store';
 import { ConfirmationMessageDto, ResetPasswordDto, UserChangePasswordDto, UserContext, UserCredentialsDto } from '@dm/shared/auth-models';
 import { createAsyncThunk, ThunkDispatch } from '@reduxjs/toolkit';
+import { AxiosError } from 'axios';
 import { push } from 'connected-react-router';
 import { Action } from 'redux';
 import { authService } from '../auth.service';
@@ -10,7 +11,7 @@ const initialize = createAsyncThunk<UserContext, undefined>('[Auth] Initialize',
   try {
     return authService.getUserContext();
   } catch (error) {
-    requestFailure(error);
+    requestFailure(error as AxiosError<unknown>);
     return thunkApi.rejectWithValue(error);
   }
 });
@@ -23,7 +24,7 @@ const signIn = createAsyncThunk<UserContext, UserCredentialsDto, AuthRejectedAct
       signInSuccess(userContext, thunkApi);
       return userContext;
     } catch (error) {
-      const errorData = requestFailure(error);
+      const errorData = requestFailure(error as AxiosError<unknown>);
       return thunkApi.rejectWithValue(errorData);
     }
   }
@@ -56,7 +57,7 @@ const signUp = createAsyncThunk<UserContext, UserCredentialsDto, AuthRejectedAct
       signInSuccess(userContext, thunkApi);
       return userContext;
     } catch (error) {
-      const errorData = requestFailure(error);
+      const errorData = requestFailure(error as AxiosError<unknown>);
       return thunkApi.rejectWithValue(errorData);
     }
   }
@@ -68,7 +69,7 @@ const signOut = createAsyncThunk('[Auth] Sign out', async (payload, thunkApi) =>
     localStorage.removeItem('token');
     thunkApi.dispatch(push('/'));
   } catch (error) {
-    requestFailure(error);
+    requestFailure(error as AxiosError<unknown>);
   }
 });
 
@@ -80,7 +81,7 @@ const changePassword = createAsyncThunk<UserContext, UserChangePasswordDto, Auth
       signInSuccess(userContext, thunkApi);
       return userContext;
     } catch (error) {
-      const errorData = requestFailure(error);
+      const errorData = requestFailure(error as AxiosError<unknown>);
       return thunkApi.rejectWithValue(errorData);
     }
   }
@@ -95,7 +96,7 @@ const resetPassword = createAsyncThunk<UserContext, ResetPasswordDto, AuthReject
       thunkApi.dispatch(push('/'));
       return userContext;
     } catch (error) {
-      const errorData = requestFailure(error);
+      const errorData = requestFailure(error as AxiosError<unknown>);
       return thunkApi.rejectWithValue(errorData);
     }
   }
@@ -107,7 +108,7 @@ const forgotPassword = createAsyncThunk('[Auth] Forgot password', async (usernam
     thunkApi.dispatch(push('/auth/reset-password'));
     successMessage(message);
   } catch (error) {
-    requestFailure(error);
+    requestFailure(error as AxiosError<unknown>);
   }
 });
 
@@ -119,7 +120,7 @@ const inviteUser = createAsyncThunk<ConfirmationMessageDto, string, AuthRejected
       successMessage(message);
       return message;
     } catch (error) {
-      const errorData = requestFailure(error);
+      const errorData = requestFailure(error as AxiosError<unknown>);
       return thunkApi.rejectWithValue(errorData);
     }
   }

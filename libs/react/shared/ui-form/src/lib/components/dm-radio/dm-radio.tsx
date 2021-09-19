@@ -1,4 +1,4 @@
-import { FormControlLabel, Radio, RadioGroup } from '@material-ui/core';
+import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import { Control, useController } from 'react-hook-form';
 import './dm-radio.module.scss';
 

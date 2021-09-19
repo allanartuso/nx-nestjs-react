@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core';
+import { Button } from '@mui/material';
 import { RequestState } from '../../models/form.model';
 import './dm-submit-button.module.scss';
 

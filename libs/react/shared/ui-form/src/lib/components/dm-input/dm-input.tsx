@@ -1,4 +1,4 @@
-import TextField from '@material-ui/core/TextField';
+import TextField from '@mui/material/TextField';
 import React from 'react';
 import { Control, useController } from 'react-hook-form';
 import { ControlRules } from '../../models/form.model';
