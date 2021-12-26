@@ -42,10 +42,18 @@ function createFormActionHandlers<T>(
   builder.addCase(actions.save.pending, (state) => ({ ...state, requestState: RequestState.IN_PROGRESS, errors: [] }));
   builder.addCase(actions.delete.pending, (state) => ({ ...state, requestState: RequestState.IN_PROGRESS, errors: [] }));
 
-  builder.addCase(actions.load.fulfilled, (state) => ({ ...state, loadingState: RequestState.SUCCESS }));
-  builder.addCase(actions.create.fulfilled, (state) => ({ ...state, requestState: RequestState.SUCCESS }));
-  builder.addCase(actions.save.fulfilled, (state) => ({ ...state, requestState: RequestState.SUCCESS }));
-  builder.addCase(actions.delete.fulfilled, (state) => ({ ...state, requestState: RequestState.SUCCESS }));
+  builder.addCase(actions.load.fulfilled, (state, action) => ({ ...state, loadingState: RequestState.SUCCESS, resource: action.payload }));
+  builder.addCase(actions.create.fulfilled, (state, action) => ({
+    ...state,
+    requestState: RequestState.SUCCESS,
+    resource: action.payload,
+  }));
+  builder.addCase(actions.save.fulfilled, (state, action) => ({ ...state, requestState: RequestState.SUCCESS, resource: action.payload }));
+  builder.addCase(actions.delete.fulfilled, (state) => ({
+    ...state,
+    requestState: RequestState.SUCCESS,
+    resource: undefined,
+  }));
 
   builder.addCase(actions.load.rejected, (state) => ({ ...state, loadingState: RequestState.FAILURE }));
   builder.addCase(actions.create.rejected, (state, action) => ({
@@ -59,9 +67,4 @@ function createFormActionHandlers<T>(
     errors: action.payload as FieldErrorDto[],
   }));
   builder.addCase(actions.delete.rejected, (state) => ({ ...state, requestState: RequestState.FAILURE }));
-
-  builder.addMatcher<FulfilledAction<T>>(
-    (action) => action.type.endsWith('/fulfilled'),
-    (state, action) => ({ ...state, resource: action.payload })
-  );
 }
