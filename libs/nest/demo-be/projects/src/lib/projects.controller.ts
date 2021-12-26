@@ -2,6 +2,7 @@ import { GetUserPayload, JwtPayload } from '@dm/nest/shared/auth';
 import { ProjectDto } from '@dm/shared/demo/data-model';
 import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { CreateProjectDto, UpdateProjectDto } from './models/project.dto';
 import { ProjectsService } from './projects.service';
 
 // TODO: validate if the user is the project's owner
@@ -21,12 +22,12 @@ export class ProjectsController {
   }
 
   @Put(':id')
-  updateResource(@GetUserPayload() userPayload: JwtPayload, @Body() project: ProjectDto): Promise<ProjectDto> {
+  updateResource(@GetUserPayload() userPayload: JwtPayload, @Body() project: UpdateProjectDto): Promise<ProjectDto> {
     return this.projectsService.updateResource(project, userPayload.id);
   }
 
   @Post()
-  createResource(@GetUserPayload() userPayload: JwtPayload, @Body() project: ProjectDto): Promise<ProjectDto> {
+  createResource(@GetUserPayload() userPayload: JwtPayload, @Body() project: CreateProjectDto): Promise<ProjectDto> {
     return this.projectsService.createResource(project, userPayload.id);
   }
 

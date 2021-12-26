@@ -1,5 +1,6 @@
 export interface ProjectDto {
   id?: number;
-  name: string;
   github?: string;
+  name: string;
+  private: boolean;
 }

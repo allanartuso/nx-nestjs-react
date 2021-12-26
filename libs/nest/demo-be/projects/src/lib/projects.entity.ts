@@ -12,6 +12,9 @@ export class ProjectEntity extends BaseEntity implements ProjectDto {
   @Column()
   name: string;
 
+  @Column()
+  private: boolean;
+
   @Column({
     nullable: true,
   })
