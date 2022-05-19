@@ -1,5 +1,6 @@
-import { DmInput, DmSubmitButton } from '@dm/react/shared/ui-form';
+import { DmInput, DmSubmitButton, DmSwitchButton } from '@dm/react/shared/ui-form';
 import { ProjectDto } from '@dm/shared/demo/data-model';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './project-form.module.scss';
 
@@ -14,6 +15,7 @@ export function ProjectForm({ resource, submit }: ProjectFormProps) {
     defaultValues: {
       name: '',
       github: '',
+      private: false,
       ...resource,
     },
   });
@@ -23,6 +25,7 @@ export function ProjectForm({ resource, submit }: ProjectFormProps) {
       <form onSubmit={handleSubmit(submit)}>
         <DmInput name="name" label="Name" control={control} />
         <DmInput name="github" label="Github" control={control} />
+        <DmSwitchButton name="private" label="Private" control={control} />
 
         <div className={styles['form-actions']}>
           <DmSubmitButton text="Save"></DmSubmitButton>
