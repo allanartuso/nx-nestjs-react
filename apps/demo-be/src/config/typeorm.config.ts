@@ -6,10 +6,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 export function getTypeOrmConfig(): TypeOrmModuleOptions {
   const config: TypeOrmModuleOptions = {
     type: 'postgres',
-    url:
-      process.env.NODE_ENV === 'production'
-        ? process.env.DATABASE_URL
-        : `postgres://${process.env.POSTGRES_USERNAME}:${process.env.POSTGRES_PWD}@localhost:5432/demo-be`,
+    url: process.env.NODE_ENV === 'production' ? process.env.DATABASE_URL : `postgres://root:root@localhost:5432/demo-be`,
     entities: [User, UserProfileEntity, ProjectEntity],
     synchronize: true,
   };
