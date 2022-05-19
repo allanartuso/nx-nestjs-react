@@ -1,4 +1,23 @@
-.checkbox {
-  width: 40px;
-  margin: 16px;
+.form {
+  form {
+    display: block;
+    margin: auto;
+    max-width: 600px;
+    padding: 1rem;
+  }
+
+  &-row {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin: 0.5rem 0;
+  }
+
+  &-actions {
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+  }
 }

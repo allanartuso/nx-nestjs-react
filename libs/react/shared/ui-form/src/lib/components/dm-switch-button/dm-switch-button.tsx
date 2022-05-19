@@ -1,12 +1,12 @@
 import Switch from '@mui/material/Switch';
-import { Control, FieldValues, useController } from 'react-hook-form';
+import { Control, useController } from 'react-hook-form';
 import { ControlRules } from '../../models/form.model';
 import './dm-switch-button.module.scss';
 
 export interface DmSwitchButtonProps {
   label: string;
   name: string;
-  control: Control<FieldValues>;
+  control: Control<any>;
   rules?: ControlRules;
   type?: string;
 }
